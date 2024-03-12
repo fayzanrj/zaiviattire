@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+.scrolled-up {
+  top: -100%;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #121212;
+  /* transition: ; */
+}
+
+.SCROLL_BAR::-webkit-scrollbar {
+  width: 6px;
+}
+
+.SCROLL_BAR::-webkit-scrollbar-track {
+  border-radius: 100px;
+}
+
+.SCROLL_BAR::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: rgb(193, 190, 190);
+  border-radius: 100px;
+}
+
+.bgImage {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: background-image 1s ease-in-out;
+  position: relative;
+}
+
+#searchMenu {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("https://images.unsplash.com/photo-1529354106868-9d7821ecaac2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+}
+
+.CENTER {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* LOADER */
+
+.loaderSvg {
+  width: 3.25em;
+  transform-origin: center;
+  animation: rotate4 2s linear infinite;
+}
+
+.circle {
+  fill: none;
+  stroke: hsl(0, 0%, 95%);
+  stroke-width: 4;
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  animation: dash4 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate4 {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash4 {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90, 200;
+    stroke-dashoffset: -35px;
+  }
+
+  100% {
+    stroke-dashoffset: -125px;
+  }
+}
+
+/* CHECKBOX */
+.checkbox {
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid #f9f9f9;
+  border-radius: 50%;
+  background-color: transparent;
+  display: inline-block;
+  position: relative;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.checkbox:before {
+  content: "";
+  background-color: #fafafa;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.checkbox:checked:before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.NEXT_STEP {
+  animation: NEXT_STEP_ANIMATION 2s forwards infinite;
+}
+
+@keyframes NEXT_STEP_ANIMATION {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 3.5rem;
+  }
+}
